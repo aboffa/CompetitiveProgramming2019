@@ -46,4 +46,5 @@ int main() {
         std::cout << trapping_rain_water(v) << std::endl;
         v.clear();
     }
+    return 0;
 }

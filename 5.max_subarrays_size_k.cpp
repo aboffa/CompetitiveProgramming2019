@@ -50,4 +50,5 @@ int main() {
         std::cout << std::endl;
         v.clear();
     }
+    return 0;
 }

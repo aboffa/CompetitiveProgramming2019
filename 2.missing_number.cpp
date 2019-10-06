@@ -32,4 +32,5 @@ int main() {
         std::cout << missing_number(v) << std::endl;
         v.clear();
     }
+    return 0;
 }

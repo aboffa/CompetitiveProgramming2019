@@ -5,10 +5,13 @@
 #include <vector>
 #include <deque>
 
-std::vector<int> next_larger_element(std::vector<int> const &v) {
-    std::vector<int> result;
+// problem: https://practice.geeksforgeeks.org/problems/next-larger-element/0
+
+// O(n) solution
+std::vector<long long> next_larger_element(std::vector<long long> const &v) {
+    std::vector<long long> result;
     result.reserve(v.size());
-    std::deque<int> deque;
+    std::deque<long long> deque;
     for (int i = v.size() - 1; i >= 0; i--) {
         while (!deque.empty() && v[i] >= v[deque.front()]) {
             deque.pop_front();
@@ -25,22 +28,23 @@ std::vector<int> next_larger_element(std::vector<int> const &v) {
 
 int main() {
     int T = 0;
-    std::vector<int> v;
+    std::vector<long long> v;
     std::cin >> T;
     for (int i = 0; i < T; i++) {
         int N = 0;
         std::cin >> N;
         v.reserve(N);
         for (int j = 0; j < N; j++) {
-            int elem;
+            long long elem;
             std::cin >> elem;
             v.push_back(elem);
         }
-        std::vector<int> result(next_larger_element(v));
-        for (std::vector<int>::reverse_iterator it = result.rbegin(); it != result.rend(); ++it) {
+        std::vector<long long> result(next_larger_element(v));
+        for (std::vector<long long>::reverse_iterator it = result.rbegin(); it != result.rend(); ++it) {
             std::cout << *it << " ";
         }
         std::cout << std::endl;
         v.clear();
     }
+    return 0;
 }
